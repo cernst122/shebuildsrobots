@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Three: Tea Brewing Robot</h1>
+ <img src="tea/tea-whiter.png" alt="Teabot" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="tea/servo.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Servo Motor</div>
+    </div>
+    <div class="twocolumn">
+        <img src="tea/3_leds.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">LEDs</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="tea/3_resistors_2.png" class="w3-image" width="100"></img>
+        <div class="w3-center w3-padding-large smalltext">330 or 220 Ω Resistors</div>
+    </div>
+    <div class="twocolumn">
+        <img src="tea/capacitor_2.png" class="w3-image" width="115"></img>
+        <div class="w3-center w3-padding-large smalltext">100 μF Capacitor (optional)</div>
+    </div>
+  </div>
+</div>
+
+ <p>It’s time to make things move! In this project, you’ll craft a motorized robot that brews the perfect cup of tea by gently bobbing a tea bag for a custom amount of time. You’ll also add indicator lights to show how long your tea has been brewing.</p>
+
+<div class="row">
+  <div class="column">
+    <figure class="w3-padding-16 w3-center">
+     <img src="tea/servo_types.jpg" alt="Three types of servo arms" class="w3-image" width="500"></img>
+     <figcaption><i>Three types of snap-on servo arms.</i></figcaption>
+    </figure>
+  </div>
+  <div class="column">
+    <figure class="w3-padding-16 w3-center">
+     <img src="tea/servos_live.jpg" alt="Servos with header pins attached" class="w3-image" width="500"></img>
+     <figcaption><i>Servo out of the box (left), and servo with arm and header pins attached (right).</i></figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>When you think of motors, you might picture the spinning variety in your electric toothbrush or your blender. There are actually many different types of motors suited for all sorts of tasks, and in this project, you’ll use what’s called a <b>servo motor</b>. Servos are useful for moving objects back and forth to precise angles. These motors are often used with snap-on arms that make it easy to attach larger, lightweight components.</p>
+
+<p>The servo knows how to move in response to a specific sequence of electrical pulses. However, you won’t need to write the code to send these pulses; it’s easier to tell the servo how to move by using the <b>servo library</b>. A <b>library</b> is a collection of pre-written code that you can use in your own projects. The servo library is open source, which means it was written by members of the maker community, and is free to use. You can share your code with the world by making your own libraries, too! You will learn how to incorporate a library in the code section. Until then, let’s go over a few important servo details.</p>
+
+<p>In addition to power and ground, your servo has a third wire for data. The data wire transmits information about how the motor should move. Servo wires come in a variety of colors, but red is always 5V power, black or brown is ground, and the remaining color is the data line. Depending on your brand of motor, you may need to insert three header pins or male-male jumper wires into the servo connector.</p>
+
+<p>Besides the servo, you’ll notice another new part on the breadboard diagram: a <b>capacitor</b>. Capacitors help regulate erratic currents by gradually charging and discharging. Motors can cause current to spike when they transition from stationary to moving. During the transition, the motor draws more current than while it is in steady motion, because it has to overcome inertia (just as you might find it more taxing to stand up after a long nap than after simply picking something up off the ground)! You can add a 100 μF capacitor to make the current change less abrupt. Your circuit can function without it, but this is a great opportunity to experiment with a new component.  Be careful to put the striped (negative) leg in the same row as the black/brown ground connection; <b>capacitors that are inserted backwards can explode.</b></p>
+
+<p>Now you are ready to take on servo motors! Build the circuit below while disconnected from power.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="tea/tea_breadboard.png" alt="Final teabot breadboard" class="w3-image" width="500"></img>
+</div>
+
+
+<p>The code below is longer than in other projects, but don't worry -- you’ll expand your skills to include <b>objects</b>, time, and <b>conditions</b>.</p>
+
+<p>The <b class="codespan">include</b> statement in the first line of code lets us use the Servo library to control the servo motor. 
+First, we need to give our motor a name and tell the Arduino that it exists. The phrase on line 11, <b class="codespan">Servo servo</b>, creates a <b class="codespan">Servo</b> object named <b class="codespan">servo</b>. It’s convention to name an object after its type, but you could just as easily use <b class="codespan">Servo steve</b> or any name you’d like. Now, when we want to send our servo some data, we simply refer to it by its new name, like we do on lines 16 and 17.</p>
+
+<p>So far, you have used <b class="codespan">delay()</b> to keep track of specific time intervals. However, this function temporarily prevents other code from running, so it is not practical for measuring substantial periods of time. Here you will use the <b class="codespan">millis()</b> function to keep track of how long the current program has been running. </p>
+
+<p class="tipbox"><b>Coding Tip</b><br>
+<b class="codespan">millis()</b> returns a value of the unsigned long data type, which is represented by a greater number of bits than data types such as int. Having more bits means more space is available to store higher numbers. This extra space is necessary, since the <b class="codespan">millis()</b> return value would become too high to store as an int after just 32 seconds.</p>
+
+<p class="tipbox"><b>Data Types 101</b><br>
+Unlike the base-10 number system that us humans use, computers use binary (base-two) numbers. In binary, each digit can be one of two values: 0 or 1. The <b>int data type</b> in Arduino can store up to 16 digits, meaning that 2<sup>16</sup> unique numbers can be represented. When counting in milliseconds, however, all of these 2<sup>16</sup> numbers pass by very quickly, in only about thirty seconds. The <b>unsigned long data type</b> can store 32 bits, and thus a total of 2<sup>32</sup> values — that’s greater than four billion, or fifty days’ worth of milliseconds!</p>
+
+<p>Finally, we need to check some conditions in our code. Conditional statements, sometimes called <b class="codespan">if statements</b>, allow computers to consider a variable’s value before choosing which task to perform. In the tea timer, for example, we only want to illuminate the yellow LED if less than half of the total brewing time remains. Otherwise, that chunk of code is skipped over entirely.</p>
+
+<p>You may want to consider several variables at once when deciding what code to run. For example, if it is a weekend OR a holiday, you’ll want to turn off your morning alarm; only one of the conditions needs to be true. For OR comparisons, separate the variables with two pipe symbols (Shift + \ on the keyboard) as shown:</p>
+
+<div class="w3-panel">
+  <pre style="white-space: pre-wrap;">
+  <code>if (condition1 || condition2) {</code>
+  <code>  doSomething();</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p>Similarly, use two “and” symbols to check if both conditions hold.
+</p>
+
+<div class="w3-panel">
+  <pre style="white-space: pre-wrap;">
+  <code>if (condition1 && condition2) {</code>
+  <code>  doSomething();</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p>Finally, use two equals signs to compare the value of one variable to another, or to a constant.</p>
+<div class="w3-panel">
+  <pre style="white-space: pre-wrap;">
+  <code>if (myVariable == 3) {</code>
+  <code>  doSomething();</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p>Two equals signs are always used for comparisons like the one above, while a single equals sign is used to assign a value to a variable (e.g., <b class="codespan">x = 1</b>).</p>
+
+<p>That was a lot! You’ve now learned three new concepts: objects, time, and conditional statements. Put them to use by copying the code below into your sketch.</p>
+
+<div class="w3-panel">
+  <pre>
+   <code>#include &ltServo.h&gt</code>
+   <code>#define redPin 13</code>
+   <code>#define yellowPin 10</code>
+   <code>#define greenPin 7</code>
+   <code>#define servoPin 3</code>
+   <code></code>
+   <code>#define doneAngle 70</code>
+   <code>#define minAngle 80</code>
+   <code>#define maxAngle 100</code>
+   <code></code>
+   <code>Servo servo;</code>
+   <code>unsigned long current_time;</code>
+   <code>unsigned long target_time = 60000*3; // 3 minutes, change me!</code>
+   <code></code>
+   <code>void setup() {</code>
+   <code>  servo.attach(servoPin);</code>
+   <code>  servo.write(maxAngle);</code>
+   <code>  pinMode(redPin, OUTPUT);</code>
+   <code>  pinMode(yellowPin, OUTPUT);</code>
+   <code>  pinMode(greenPin, OUTPUT);  </code>
+   <code>}</code>
+   <code></code>
+   <code>void loop() {</code>
+   <code>  current_time = millis();</code>
+   <code>  if (current_time < target_time/2) {</code>
+   <code>    digitalWrite(redPin, HIGH); </code>
+   <code>  }</code>
+   <code>  else if (current_time > target_time/2 && current_time < target_time) {</code>
+   <code>    digitalWrite(redPin, LOW);</code>
+   <code>    digitalWrite(yellowPin, HIGH);</code>
+   <code>  }</code>
+   <code>  else {</code>
+   <code>    servo.write(doneAngle);</code>
+   <code>    digitalWrite(yellowPin, LOW);</code>
+   <code>    digitalWrite(greenPin, HIGH); </code>
+   <code>  }</code>
+   <code>  // Gently bob up and down every 2 seconds until finished</code>
+   <code>  if(current_time < target_time) {</code>
+   <code>    for (int i = maxAngle; i > minAngle; i--) {</code>
+   <code>      servo.write(i);</code>
+   <code>      delay(200);</code>
+   <code>    }</code>
+   <code>    for (int i = minAngle; i < maxAngle; i++) {</code>
+   <code>      servo.write(i);</code>
+   <code>      delay(200);</code>
+   <code>    }</code>
+   <code>  }</code>
+   <code>}</code>
+  </pre>
+</div>
+
+<p>After uploading, your motor should sweep back and forth between <b class="codespan">minAngle</b> and <b class="codespan">maxAngle</b>. Feel free to play with these values! Then give your motor some reach by using a rubber band to attach a popsicle stick to the servo arm.</p>
+
+<p>Stuck? Check your work against the circuit diagram and code above and video below.</p>
+ <div class="w3-panel w3-padding-32 w3-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jKoTLqU9y6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<p>Once the circuit is working as expected, set up your robot's body. A box several inches taller than your teacup works as a solid base. Lightly trace the shape of the servo base onto the cardboard in the top right corner of the box. Carefully cut out this servo hole with a box cutter. The servo base should fit snugly, held in place by cardboard on all four sides. If you’d like the time indicator LEDs to be embedded in the box instead of the breadboard, follow the procedure from the Marquee Light project to create extra wire length with pin-socket jumpers.</p>
+
+<p>To use your new robot, wrap a tea bag string around the end of the popsicle stick and place a teacup full of hot water underneath. When power is applied to the Arduino, the servo will begin to move. The motor will automatically raise the bag out of the water when time is up. When working anywhere near water, take extra care to avoid spills! Water conducts electricity and can cause short circuits that damage your equipment. </p>
+
+<p>Congratulations on creating your first motorized robot!</p>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+Can you add a button to start and stop brewing? How about programming your robot to automatically start working at a certain time of a day?</p>
+
+<p class="w3-center w3-xlarge"><a href="project_marquee.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_bat.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_tea",});
+</script>
+</body>
+</html>

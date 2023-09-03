@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<header class="w3-container w3-center" style="padding-top: 64px; padding-bottom: 64px; background-color:#7B7696">
+  <h1 class="w3-jumbo" style="color:white;">LET'S BUILD ROBOTS</h1>
+  <p class="w3-xlarge" style="color:white;">Circuit &#38; Coding Projects For Girls</p>
+  <form method="get" action="projects.html">
+    <button type="submit" class="w3-button w3-padding-large w3-large w3-margin-top" style="background-color:#353248; color:white; border-radius:4px"><b>Browse Tutorials</b></button>
+  </form>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-32 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <p style="margin:16px; text-align: justify;">The world of robotics is exciting, creative, and fun. But by high school, too many girls have heard the message that a tech career isn't for them. <b>She Builds Robots</b> is a collection of introductory circuit and coding projects designed for girls in middle school and above, written by a Google engineer and seeded by the <a href="https://1517fund.com" style="text-decoration: underline;" class="w3-hover-opacity">1517 Fund</a>. <br><br>Build circuit confidence with  <a href="projects.html" style="text-decoration: underline;" class="w3-hover-opacity">nine beginner-friendly projects</a>.
+      </p>
+    </div>
+    <div class="w3-third w3-center">
+      <img src="cupcake/cupcake-thumbnail.png" alt="Cupcake" class="responsive" style="padding:8px"></img>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-32 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <img src="heartbox/heartbox.GIF" alt="Heartbox" class="responsive" style="padding:16px"></img>
+    </div>
+    <div class="w3-twothird">
+      <p style="text-align: justify;">STEM education doesn't have to mean lab work. When e-textile circuits were introduced in a study of middle school classrooms, girls tended to play a greater leadership role than boys, and the projects were positioned in front of girls 81% of the time<sup>1</sup>. <a href="projects.html" style="text-decoration: underline;" class="w3-hover-opacity">Explore e-textile projects from wall art to color-changing dresses</a>.
+  </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="w3-row-padding w3-padding-32 w3-container w3-center">
+  <div class="w3-content w3-center">
+	  <h1 style="text-align: center">As Featured In</h1>  
+	  <div class="row w3-center">
+		  <div class="column w3-center" style="padding:32px; text-align:center">
+		      <img src="press/make_press_1.png">
+		  </div>
+		  <div class="column w3-center" style="padding:32px; text-align:center">
+		      <img src="press/make_logo.jpeg">
+		  </div>
+	  </div>
+  </div>
+</div>
+
+<footer class="w3-center w3-light-grey w3-padding-16">
+  1. <i>Peppler, Kylie. "A Review of E-Textiles in Education and Society." January 2015.</i></li>
+</footer>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.logEvent('notification_received');
+  analytics.log_event('screen_view', {screen_name: "index",});
+</script>
+</body>
+</html>

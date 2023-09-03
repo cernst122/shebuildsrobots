@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Eight: Twinkling Constellation Embroidery</h1>
+ <img src="constellation/constellation.GIF" alt="Constellation embroidery" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="constellation/gemma.png" alt="Gemma" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Gemma Board</div>
+    </div>
+    <div class="twocolumn">
+        <img src="constellation/sequins.png" alt="LED Sequins" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">LED Sequins or Traditional LEDs</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="constellation/battery_jst.png" alt="Battery" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Battery or Battery Holder with JST Connector</div>
+    </div>
+    <div class="twocolumn">
+       <img src="constellation/thread.png" alt="Conductive Thread" class="w3-image" width="175"></img>
+       <div class="w3-center w3-padding-large smalltext">Conductive Thread</div>
+    </div>
+  </div>
+</div>
+
+ <p>Now that you know how to light up fabric with LEDs and batteries, we’ll take your textiles to the next level with code. In this project you’ll make starry wall art that twinkles like the night sky. </p>
+
+<p>While the traditional LEDs from previous projects will work just fine here, sometimes your project calls for a flatter source of light. <b>Sequins</b> are a brand name version of tiny, sewable LEDs that lay flat against your surface. They work just like traditional LEDs, with a positive and negative side. </p>
+
+<p>Let’s start planning out our LED constellation. The Gemma will sit on the opposite side of the fabric as the LEDs so that your final design looks cleaner. Place your first layer of fabric inside the embroidery hoop. Use a pen to lightly mark the placement of your LEDs on the fabric. Make sure you leave plenty of room on the sides of the hoop to accommodate the Gemma. Your layout should look something like the Big Dipper in the photo below.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="constellation/roadmap_unannotated.jpeg" alt="Embroidery hoop with unsewn LEDs" class="w3-image" width="500"></img>
+</div>
+
+<p>As with all e-textile projects, we must avoid crossing threads from power and ground to prevent short circuits. It’s always worth sketching out your design before starting to sew. The labeled diagram below serves as a roadmap for the Big Dipper. Notice how the LEDs in the pink group have their positive sides facing up, while the LEDs in the green group have their positive sides facing down. This is so they can more easily share a common ground thread, shown as the blue connection in the diagram.</p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/embroidery_roadmap.jpg" alt="Embroidery roadmap" class="w3-image" width="500"></img>
+  <figcaption><i>The Gemma and battery will go on the back side of the fabric.</i></figcaption>
+</figure>
+
+<p>Once your positioning is marked onto the fabric, cut about a foot of conductive thread and begin sewing the negative terminals of the top right (pink) LED group, as shown below.</p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_1.jpg" alt="Embroidery roadmap" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn negative terminals of first group of LEDs: front view</i></figcaption>
+</figure>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_1_back.jpeg" alt="Embroidery roadmap back" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn negative terminals of first group of LEDs: back view</i></figcaption>
+</figure>
+
+<p>Now sew down the negative terminals of the second group of LEDs. Both groups’ thread should be sewn around the Gemma’s GND pad. </p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_2.jpg" alt="Embroidery roadmap: ground terminals" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn negative terminals of second group of LEDs: front view</i></figcaption>
+</figure>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_2_back.jpeg" alt="Embroidery roadmap back: ground terminals back" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn negative terminals of second group of LEDs: back view</i></figcaption>
+</figure>
+
+<p>Now you’ll make connections to the Gemma’s digital pins, which will control the LEDs’ twinkling speed. The code takes advantage of the <b class="codespan">analogWrite</b> function you learned about in the desktop fan project. Because we need PWM (~) pins to properly use <b class="codespan">analogWrite</b>, we will make connections to pin D0 and D1. Sew the positive terminals of group one to Gemma pin D0.
+</p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_3.jpg" alt="Embroidery roadmap: positive terminals" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn positive terminals of first group of LEDs: front view</i></figcaption>
+</figure>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_3_back.jpeg" alt="Embroidery roadmap: positive terminals back" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn positive terminals of first group of LEDs: back view</i></figcaption>
+</figure>
+
+
+<p>You’re almost there! All that’s left is the positive terminals of group two. Sew them to pin D1. </p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_4.jpeg" alt="Embroidery roadmap: positive terminals" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn positive terminals of second group of LEDs: front view</i></figcaption>
+</figure>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/roadmap_4_back.jpeg" alt="Embroidery roadmap: positive terminals back" class="w3-image" width="500"></img>
+  <figcaption><i>Sewn positive terminals of second group of LEDs: back view</i></figcaption>
+</figure>
+
+<p>You’re done sewing! Connect your Gemma to your computer and take a look at the code below. We want our two groups of LEDs to fade in and out at different times, so we give them each a brightness variable that increases by a unique fade rate. When the LED reaches peak brightness, we subtract the fade rate until we reach the minimum brightness, and repeat. Experiment with the fade rate, minimum brightness, and maximum brightness as much as you’d like. Depending on the thickness of your fabric, you may want to increase or decrease your brightness variables.</p>
+
+<div class="w3-panel">
+  <pre>
+    <code>// These numbers are a personal preference. Change them as you wish!</code>
+    <code>int brightness0 = 4;</code>
+    <code>int brightness1 = 4;</code>
+    <code></code>
+    <code>int fadeRate1 = 5;</code> 
+    <code>int fadeRate0 = 4;</code>
+    <code></code>
+    <code>int minBrightness = 4;</code>
+    <code>int maxBrightness = 50;</code>
+    <code></code>
+    <code>void setup(){</code>
+    <code>  pinMode(0, OUTPUT);</code>
+    <code>  pinMode(1, OUTPUT);</code>
+    <code>}</code>
+    <code></code>
+    <code>void loop(){</code>
+    <code>  analogWrite(0, brightness0);</code>
+    <code>  analogWrite(1, brightness1);</code>
+    <code></code>
+    <code>  brightness1 += fadeRate1;</code>
+    <code>  brightness0 +=  fadeRate0;</code>
+    <code></code>
+    <code>  if (brightness1 <= minBrightness || brightness1 >= maxBrightness) {</code>
+    <code>    fadeRate1 = -fadeRate1;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  if (brightness0 <= minBrightness  || brightness0 >= maxBrightness) {</code>
+    <code>   fadeRate0 = -fadeRate0;</code>
+    <code>  }</code>
+    <code></code>
+    <code>  delay(150);</code> 
+    <code>}</code>
+ </pre>
+</div>
+
+<p>Once you’re satisfied with your twinkling pattern, it’s time to finish up the hoop. Cut a second layer of fabric and place it in the hoop over your first layer. Sheer fabrics look especially nice, but you can change the brightness levels of your LEDs to shine through thicker fabrics, too. </p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="constellation/fabric_suggestion.jpeg" alt="Sheer fabric over project" class="w3-image" width="500"></img>
+  <figcaption><i></i></figcaption>
+</figure>
+
+<p>Once your top layer is in the hoop, use white thread to stitch dotted constellation lines between the LEDs. You can also add stars, planets, or your own creative touches on the rest of the fabric.</p>
+
+<p>When you’re done stitching, trim away excess fabric to leave about 1” of fabric around the hoop. You can glue the raw fabric edges to the back sides of the hoop. Alternatively, knot a long piece of thread and make long stitches around the hoop to gather the excess fabric. Pull the thread tight and knot it off. The raw fabric will now be gathered around the back of the hoop.</p>
+
+<p>Finally, plug a battery into the Gemma’s JST port and switch on the microcontroller. Watch your design sparkle!</p>
+
+<p class="w3-center w3-xlarge"><a href="project_crowns.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_skirt.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_constellation",});
+</script>
+</body>
+</html>

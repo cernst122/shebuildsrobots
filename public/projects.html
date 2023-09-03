@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<header class="w3-container w3-center" style="padding-top: 64px; padding-bottom: 64px; background-color:#7B7696">
+  <h1 class="w3-jumbo" style="color:white">Tutorials</h1>
+  <p class="w3-xlarge" style="color:white;">Learn to control lights, motors, and sensors with step-by-step pictures and code.
+  <br><br>
+Get started and set up your software with the first tutorial below.
+  </p>
+</header>
+
+<div class="row">
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="setup.html">
+      <img src="arduino-shaded.png">
+      <div class="w3-center"><h1>Get Started</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_heartbox.html">
+      <img src="heartbox/heartbox_thumbnail_2.png">
+      <div class="w3-center"><h1>Blinking Heartbeat Box</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_marquee.html">
+      <img src="marquee/marquee-thumbnail.png">
+      <div class="w3-center"><h1>Animated Marquee Lights</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_tea.html">
+      <img src="tea/tea-thumbnail.png">
+      <div class="w3-center"><h1>Tea Brewing Robot</h1></div>
+    </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_bat.html">
+      <img src="bat/bat-thumbnail.png">
+      <div class="w3-center"><h1>Light Sensitive Bats</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_fan.html">
+      <img src="fan/fan-thumbnail.png">
+      <div class="w3-center"><h1>Desktop Fan</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_cupcake.html">
+      <img src="cupcake/cupcake-thumbnail.png">
+      <div class="w3-center"><h1>Musical Cupcake Topper</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_crowns.html">
+      <img src="crowns/crowns-thumbnail.jpeg">
+      <div class="w3-center"><h1>Soft Circuit Mini Crowns</h1></div>
+    </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_constellation.html">
+      <img src="constellation/constellation-thumbnail.png">
+      <div class="w3-center"><h1>Twinkling Constellation Embroidery</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="project_skirt.html">
+      <img src="skirt/skirt-thumbnail.jpg">
+      <div class="w3-center"><h1>Color Changing Skirt</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="https://forms.gle/nKv8kBbncjeBipDT8">
+      <img src="materials/components-thumbnail.jpg">
+      <div class="w3-center"><h1>Suggest a Project</h1></div>
+    </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="w3-hover-opacity">
+      <a href="resources.html">
+      <img src="materials/batteries-thumbnail.jpg">
+      <div class="w3-center"><h1>Resources</h1></div>
+    </a>
+    </div>
+  </div>
+</div>
+
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.setCurrentScreen("projects");
+  analytics.log_event('screen_view', {screen_name: "projects", screen_class: "projects"});
+  analytics.logScreenView({
+    screen_class: 'project',
+    screen_name: 'project',
+  });
+</script>
+</body>
+</html>

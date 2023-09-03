@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+ a {
+  text-decoration: underline;
+ }
+
+ ul {
+  margin: 36px;
+  font-size: 20px;
+  line-height: 1.65;
+  font-family: myriad-pro,helvetica,arial,sans-serif;
+  color: #555;
+  word-wrap: break-word;
+  padding: 0.01em 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+ }
+ </style>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+  </div>
+</div>
+
+<header class="w3-container w3-center" style="padding-top: 64px; padding-bottom: 64px; background-color:#7B7696">
+  <h1 class="w3-jumbo" style="color:white">Resources</h1>
+  <p class="w3-xlarge" style="color:white;">Below are some of my favorite resources for learning, sharing, and buying.</p>
+</header>
+
+<div class="w3-row-padding w3-padding-32 w3-container">
+  <div class="w3-row">
+    <div class="w3-justify w3-padding-32 w3-container">
+
+<div class="tipbox"><b><h2>Learning</h2></b>
+<ul>
+  <li><a href="https://www.instructables.com/">Instructables</a> - Community-submitted tutorials</li>
+  <li><a href="https://learn.adafruit.com/">Adafruit</a> - Hardware retailer with tutorials</li>
+  <li><a href="https://www.arduino.cc/education">Arduino</a> - Open Source tutorials and hardware</li>
+</ul>
+</div>
+
+<br>
+
+<div class="tipbox"><b><h2>Buying</h2></b>
+<p>For small, generic, or bulk parts, like LEDs and sensors, <a href="https://www.ebay.com/">Ebay</a> is often the cheapest option. For larger or more specialized purchases:</p>
+<ul>
+  <li><a href="https://www.adafruit.com/">Adafruit</a></li>
+  <li><a href="https://store.arduino.cc/usa/">Arduino</a></li>
+  <li><a href="https://www.digikey.com/">DigiKey</a></li>
+  <li><a href="https://www.sparkfun.com/">SparkFun</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity" style="text-decoration: none;">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "resources",});
+</script>
+</body>
+</html>

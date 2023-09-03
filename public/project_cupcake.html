@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Six: Musical Cupcake Topper</h1>
+ <img src="cupcake/cupcake-whiter.png" alt="Cupcake" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="cupcake/piezo.png" alt="Piezo" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Piezo</div>
+    </div>
+    <div class="twocolumn">
+        <img src="cupcake/gemma.png" alt="Gemma" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Gemma Board (optional)</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column" style="margin: auto;">
+        <img src="cupcake/battery_jst.png" alt="Battery" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Battery with JST Connector (optional)</div>
+    </div>
+  </div>
+</div>
+
+ <p>Surprise your friends with a birthday serenade! In this project you will learn how to use a <b>piezo</b> to play “Happy Birthday”. A piezo can both detect vibrations (input) and create vibrations (output) to play tones. With a little math and some code, you can recreate any song on a piezo.</p>
+
+<p>The circuit for this project is very simple, so your code will be the star.  Connect one pin of the piezo to ground, and the other to pin 11.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="cupcake/piezo_breadboard.png" alt="Piezo breadboard" class="w3-image" width="500"></img>
+</div>
+
+<p>Take a look at the code below. Underneath all the definitions, there are two new structures called <b class="codespan">beats[]</b> and <b class="codespan">notes[]</b>. These are both <b>arrays</b>, a common data structure for storing lots of information of one particular type. In our case, both arrays store numbers (integers). Remember that the letters in <b class="codespan">notes[]</b> actually represent numbers, since you defined them at the beginning of the code.</p>
+
+<p>Arrays are <b>zero-indexed</b>, which means that the first item in the list is thought of as #0, rather than #1. We can ask for whichever item we want by using brackets: the first item in the list is <b class="codespan">arrayName[0]</b>, followed by <b class="codespan">arrayName[1]</b>, <b class="codespan">arrayName[2]</b>, and so on. Be careful not to ask for a value in a position that is greater than the length of the list, or you will get an <b>out of bounds</b> error. By keeping track of the length of our song in the variable <b class="codespan">numNotes</b>, we can prevent this error. </p>
+
+<p>Now look inside the loop function on line 24. To play a note, the piezo must vibrate at a specific frequency. We can create these vibrations by supplying and removing power from the piezo for specific amounts of time. The longer we wait between toggling power, the lower the pitch will sound. To play an A  (frequency 440 Hz), we digitally write HIGH to the piezo pin, wait for 440 microseconds with the <b class="codespan">delayMicroseconds()</b> function, then digitally write LOW. We then record how much time has passed, and continue to toggle power until the note has played for its full duration. </p>
+
+<div class="w3-panel">
+  <pre>
+  <code>#define speakerPin 11</code>
+  <code></code>
+  <code>#define G 1275</code>
+  <code>#define A 1136</code>
+  <code>#define B 1014</code>
+  <code>#define C 956</code>
+  <code>#define D 834</code>
+  <code>#define E 765</code>
+  <code>#define F 715</code>
+  <code>#define g 645</code>
+  <code></code>
+  <code>int beats[] = {1, 1, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4,</code>
+  <code>                1, 1, 2, 2, 2, 2, 4, 1, 1, 2, 2, 2, 4};</code>
+  <code>int notes[] = {G, G, A, G, C, B, G, G, A, G, D, C, G,</code>
+  <code>                  G, g, E, C, B, A, F, F, E, C, D, C};</code>
+  <code>int numNotes = 25;</code>
+  <code>int tempo = 200;</code>
+  <code>long durationPlayed = 0;</code>
+  <code></code>
+  <code>void setup(){</code>
+  <code>  pinMode(speakerPin, OUTPUT);</code>
+  <code>}</code>
+  <code></code>
+  <code>void loop(){</code>
+  <code>  for (int i = 0; i < numNotes; i++){</code>
+  <code>    while(durationPlayed < beats[i]*60*1000000/tempo){</code>
+  <code>      digitalWrite(speakerPin, HIGH);</code>
+  <code>      delayMicroseconds(notes[i]);</code>
+  <code>      digitalWrite(speakerPin, LOW);</code>
+  <code>      delayMicroseconds(notes[i]);</code>
+  <code>      durationPlayed+=notes[i]*2;</code>
+  <code>    }</code>
+  <code>    durationPlayed = 0;</code>
+  <code>    delay(10); //delay between notes</code>
+  <code>  }</code>
+  <code>}</code>
+ </pre>
+</div>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+The code in the loop will repeat the song until you disconnect power. Try adding a pushbutton to your circuit and an <b>if statement</b> around this code to play the song on demand! If you would like to change the key of the song, check out the table of frequencies at the end of this project.
+</p>
+
+<p>Up to this point, you’ve created all your circuits on a solderless breadboard. This is a great way to prototype, but sometimes you want your final product to be smaller -- in this case, small enough to fit on top of a cupcake. A common way to reduce size is to use a different microcontroller. This project will use the Adafruit Gemma because it is lightweight and comes with a handy power switch. If you’re satisfied with your breadboard and Arduino melodies, you can move on to the next project. Otherwise, read on to learn how to use the Gemma.</p>
+
+<p>First, you will need a micro-B USB cable to upload code onto the Gemma board. Make sure that the cable can transmit data and is not power-only (the box or packaging should clarify).</p>
+
+<p>Next, your software needs more information about the Gemma. Please visit <a href="https://learn.adafruit.com/add-boards-arduino-v164/overview" style="text-decoration: underline;">https://learn.adafruit.com/add-boards-arduino-v164/overview</a> and follow the instructions for adding third party boards. </p>
+
+<p>Now, open the Tools > Board menu and select Adafruit Gemma 8MHz. You’re ready to upload code!
+<b>You must change the first line of the code above to be <b class="codespan">#define speakerPin 0</b></b>. The rest of the code should remain unchanged. </p>
+
+<p>Your code can only be uploaded to the Gemma while the board is in <b>Bootloader Mode</b>, indicated by a pulsing red light. This mode lasts about ten seconds and can be activated by connecting your board to your USB port, or by pressing the on-board button. Activate Bootloader Mode and upload your code. </p>
+
+<p>You’ll notice that your Gemma has flat metal pads instead of breadboard holes. You must be able to make a secure connection between these pads and the legs of your piezo to conduct electricity. The best way to do this is by <b>soldering</b>, a means of using heat to electrically join components. Your local library, college, or makerspace may have soldering irons available to use. Otherwise, it is possible -- but not as secure -- to make connections by wrapping wire around the Gemma holes and the piezo legs. Attach the piezo as shown below. </p>
+
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="cupcake/piezo_gemma.png" alt="Piezo setup with Gemma" class="w3-image" width="250"></img>
+</div>
+
+<p>The Gemma has an on-board battery port, so you do not have to make manual connections to the <b class="codespan">3Vo</b> and <b class="codespan">GND</b> pins. Simply plug a battery with JST leads into the port. Flip on the power switch and listen to your piezo sing!</p>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+To create a compact cupcake topper, tape the piezo flat against the back of the Gemma. Then tape down a long toothpick or straw, and finally, secure the battery over all of these elements. The toothpick should be tightly wedged between the piezo and the battery.</p>
+
+<div class="w3-container">
+<table class="w3-table w3-striped w3-center">
+  <tr>
+    <th style="text-align: center">Note</th>
+    <th style="text-align: center">Frequency (Hz)</th>
+  </tr>
+  <tr>
+    <td style="text-align: center">A3</td>
+    <td style="text-align: center">220</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">A#3</td>
+    <td style="text-align: center">233</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">B3</td>
+    <td style="text-align: center">247</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">C4</td>
+    <td style="text-align: center">262</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">C#4</td>
+    <td style="text-align: center">277</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">D4</td>
+    <td style="text-align: center">294</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">D#4</td>
+    <td style="text-align: center">311</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">E4</td>
+    <td style="text-align: center">330</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">F4</td>
+    <td style="text-align: center">349</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">F#4</td>
+    <td style="text-align: center">370</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">G4</td>
+    <td style="text-align: center">394</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">G#4</td>
+    <td style="text-align: center">415</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">A4</td>
+    <td style="text-align: center">440</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">A#4</td>
+    <td style="text-align: center">466</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">B4</td>
+    <td style="text-align: center">493</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">C5</td>
+    <td style="text-align: center">523</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">C#5</td>
+    <td style="text-align: center">554</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">D5</td>
+    <td style="text-align: center">587</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">D#5</td>
+    <td style="text-align: center">622</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">E5</td>
+    <td style="text-align: center">659</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">F5</td>
+    <td style="text-align: center">698</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">F#5</td>
+    <td style="text-align: center">740</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">G5</td>
+    <td style="text-align: center">784</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">G#5</td>
+    <td style="text-align: center">830</td>
+  </tr>
+  <tr>
+    <td style="text-align: center">A5</td>
+    <td style="text-align: center">880</td>
+  </tr>
+</table>
+</div>
+
+<p class="w3-center w3-xlarge"><a href="project_fan.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_crowns.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_cupcake",});
+</script>
+</body>
+</html>

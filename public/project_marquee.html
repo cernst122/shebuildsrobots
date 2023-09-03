@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  max-width: 50%;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Two: Animated Marquee Lights</h1>
+ <img src="marquee/marquee.GIF" alt="Marquee" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="marquee/marquee_7leds.png" alt="LEDs" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">LEDs</div>
+    </div>
+    <div class="twocolumn">
+        <img src="marquee/marquee_7resistors.png" alt="Resistors" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">220 Ω resistors</div>
+    </div>
+  </div>
+</div>
+
+ <p>In the previous project, you learned how current flows through a circuit to power a single light. 
+You’ll soon animate a whole set of lights one by one in a custom pattern! You will use the Arduino’s digital pins to provide power just as you did in Project One.  To create light animations, each LED needs to be turned on and off individually, so this time we will use a unique digital pin to control each light.</p>
+
+<p>Rather than plugging LEDs directly into the breadboard this time, insert each LED leg into the socket end of a jumper cable as shown below (these cables are also known as a male-female jumper cables or pin-socket jumper cables). These wires provide the extra length necessary to mount the light on the marquee. You may want to secure the LEDs with tape. Remember to keep track of the positive and negative terminals of your LED! The short leg should ultimately be connected to the Arduino's GND pin, and the long leg should connect to power through one of the resistors.</p>
+
+<figure class="w3-padding-16 w3-center">
+ <img src="marquee/led_lengthened.png" alt="LED with extended leads" class="w3-image" width="500"></img>
+ <figcaption><i>An LED with each leg plugged into a jumper cable for extra length.</i></figcaption>
+</figure>
+
+
+<p>You do not have to use the same number of LEDs that are shown below. In the next section you will customize the code to run on as many lights as you’d like.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="marquee/marquee_final_breadboard.png" alt="Final marquee breadboard" class="w3-image" width="500"></img>
+</div>
+
+<p>It’s safe practice to finish wiring your circuit completely before applying power. Once your circuit looks like the image above, plug in your USB cord and open the Arduino editor. Before copying code, let’s break down what you’re about to type.</p>
+
+<p>Take a look at the first line of the code below. The number 7 on the first line, <b class="codespan">#define numLights 7</b>, is called a <b>constant</b>. If you are using, say, 5 LEDs, it would be a pain to change the 7 to a 5 everywhere it appears in the code. Constants allow us to give a nickname to a number that we use many times. When we want to change the constant’s value, we only have to change the definition at the top of the file.</p>
+
+<p>Now look at line 4, which says <b class="codespan">for (int i = 0; i < numLights; i++).</b>
+These are called <b>for loops</b>. The code inside the <b>for loop</b> turns a single LED on and off. We could copy and paste this code for every single LED we control, but that would be a lot of extra work! Instead, the <b>for loop</b> lets us do the same work over and over, while only changing one variable: <b class="codespan">i</b>, which represents the specific light we're turning on.</p>
+
+<p class="tipbox"><b>Coding Tip</b><br>
+Use comments to make notes that the computer will ignore. Create a comment by adding two forward slashes in front of your text, just like on line 1 of the marquee code below. <br>
+<b class="codespan">// When in doubt, comment it out!</b>
+</p>
+
+<p>Now that you’ve learned some new coding basics, copy the following code into your sketch.</p>
+
+<div class="w3-panel">
+  <pre>
+  <code>#define numLights 7 // Replace 7 with your number of LEDs! </code>
+  <code></code>
+  <code>void setup() { </code>
+  <code> for (int i = 0; i < numLights; i++) { </code>
+  <code>   pinMode(i, OUTPUT); </code>
+  <code> } </code>
+  <code>}</code>
+  <code></code>
+  <code>void loop() {</code>
+  <code>for (int i = 0; i < numLights; i++) {</code>
+  <code> digitalWrite(i, HIGH);</code>
+  <code> delay(500);</code>
+  <code> digitalWrite(i, LOW);</code>
+  <code> }</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p>Upload your code just like you did in Project One. If nothing happens, be sure to check for any red error messages at the bottom of the screen.</p>
+
+ <p>If you're stuck, take a look at the video below to get back on track.</p>
+ <div class="w3-panel w3-padding-32 w3-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/z-FEyj9RQbc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<p>Once you’ve verified that the circuit is working properly, you can get creative with displaying your lights. For the classic marquee look, sketch your letter on cardboard. Make a mark every few centimeters where you’d like to place the lights. Then, use scissors or a pen tip to punch a small hole that is the same size as the LED. Gently poke the LEDs through the holes from back to front, and secure the LEDs with tape. Be sure that the LEDs are inserted in pin order for the animation to appear correctly.</p>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+You can use ping-pong balls or plastic marquee bulbs sold at craft stores to diffuse the LEDs and create a more professional looking project.
+</p>
+
+<p class="w3-center w3-xlarge"><a href="project_heartbox.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_tea.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_marquee",});
+</script>
+</body>
+</html>

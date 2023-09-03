@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Five: Desk Fan</h1>
+ <img src="fan/fan-whiter.png" alt="Fan" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+<!--   Replace meeeeee -->
+  <div class="row">
+    <div class="twocolumn">
+        <img src="fan/motor.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">DC Motor</div>
+    </div>
+    <div class="twocolumn">
+        <img src="fan/transistor.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">MOSFET Transistor</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="fan/potentiometer.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Potentiometer</div>
+    </div>
+    <div class="twocolumn">
+        <img src="fan/diode.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Diode</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column" style="margin: auto;">
+      <img src="fan/battery.png" class="w3-image" width="175"></img>
+      <div class="w3-center w3-padding-large smalltext">9V Battery with RCA Connector</div>
+    </div>
+  </div>
+</div>
+
+ <p>DC (direct current) motors are high-speed motors that produce magnetic fields in order to rotate. Unlike the servo motor from Project Three, DC motors continuously rotate 360 degrees, making them a common choice for powering wheels and other rotating machines. In this project you’ll take advantage of the full circular motion to build an adjustable-speed fan.</p>
+
+ <p>Different brands of motors need different amounts of current, and it’s possible for your motor to draw too much current for a computer’s USB port to handle. A 9V battery will ensure your motor gets enough power. This kind of external battery can plug directly into the Arduino's <b>RCA port</b>. The battery’s voltage is accessible through the <b class="codespan">Vin</b> pin on the left side of the Arduino.</p>
+
+ <p>There are three other new elements in this circuit: a <b>transistor</b>, a <b>potentiometer</b>, and a <b>diode</b>.</p>
+
+<figure class="w3-padding-16 w3-center">
+    <img src="fan/fan_live_parts.jpeg" alt="Diodes, potentiometers, and transistors" class="w3-image" width="500"></img>
+    <figcaption><i>From left to right: Two diodes, two potentiometers, and two transistors.</i></figcaption>
+</figure>
+
+<p>A <b>transistor</b> is like a switch that you’ll use to interface between the high-voltage battery and the lower-voltage Arduino. MOSFET transistors have three legs called the <b>gate</b>, <b>source</b>, and <b>drain</b> (or <b>base</b>, <b>emitter</b>, and <b>collector</b> on other types of transistors). Applying voltage to the gate connects the source and drain pins, allowing current to flow between the two. Your Arduino will control the gate voltage to change the motor speed. </p>
+
+<p class="tipbox"><b>Circuit Tip</b><br>
+If you come across an unfamiliar transistor, search the Web for its part number. Publicly available datasheets will explain which pin is which. </p>
+
+<p>As humans, we need a physical way to tell the Arduino that we want to change the motor speed, and by how much. <b>Potentiometers</b> are knobs whose resistance changes as you rotate them. Just as we used <b class="codespan">analogRead()</b> in Project Four to read the amount of light in a room, the reading of a potentiometer’s resistance tells us how much the knob has been turned. Potentiometers are a great user interface for controlling variable outputs like speed, volume, amount of light, and more. </p>
+
+<p>The final new element is the <b>diode</b>, which is like a one-way street sign for current flow. Motors continue to spin for a few moments after current is removed, and in this time they generate currents in the opposite direction as before; a diode will protect the circuit from being damaged by this reverse current. Diodes have a specific <b>polarity</b> (just like LEDs, which are diodes that must be inserted in the right direction). The stripe on a diode indicates the cathode (negative end). Just like LEDs, these diodes will not allow any current to flow if they are inserted backwards.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="fan/fan_breadboard.png" alt="Final fan breadboard" class="w3-image" width="700"></img>
+</div>
+
+<p>The Arduino’s digital pins only output two voltages, HIGH and LOW. However, we can get an output somewhere in the middle by rapidly switching between HIGH and LOW. For example, to our slow human brains, flickering a light on and off hundreds of times a second would look like a dimmer version of the always-on light. The Arduino has a few pins specifically made for this type of flickering: <b>Pulse Width Modulation (PWM) pins</b>, indicated with a ~ symbol.</b></p>
+
+<p>A PWM wave is a square wave with a <b>Duty Cycle</b> describing how often the signal is HIGH (on) or LOW (off). For example, a wave with a duty cycle of 50% looks like this:</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="fan/duty_cycle_50.png" alt="Duty cycle of 50%" class="w3-image" width="500"></img>
+</div>
+
+<p>While a duty cycle of 20% looks like this:</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="fan/duty_cycle_20.png" alt="Duty cycle of 20%" class="w3-image" width="500"></img>
+</div>
+
+<p>The smaller your duty cycle, the slower your motor will rotate. </p>
+
+<p>The <b class="codespan">analogWrite()</b> function writes a PWM wave with a duty cycle between 0 (always LOW) and 255 (always HIGH) to a digital pin. When your potentiometer is turned all the way to one side, we send the minimum duty cycle, and when the potentiometer is turned all the way to the other side, we send the maximum duty cycle. The <b class="codespan">map()</b> function takes the potentiometer’s analog reading, which can be anywhere from 0 to 1023, and proportionally transforms it into a duty cycle value from 0 to 255.</p>
+
+<div class="w3-panel">
+  <pre>
+    <code>#define transistorPin 11 // Must be a PWM (~) pin.</code>
+    <code>#define potPin A0</code>
+    <code></code>
+    <code>void setup() {</code>
+    <code>  pinMode(transistorPin, OUTPUT);</code>
+    <code>}</code>
+    <code></code>
+    <code>void loop() {</code>
+    <code>  int potPinReading = analogRead(potPin);</code>
+    <code>  int fanSpeed = map(potPinReading, 0, 1023, 0, 255);</code>
+    <code>  analogWrite(transistorPin, fanSpeed);</code>
+    <code>}</code>
+  </pre>
+</div>
+
+
+<p>Once your battery is attached and your code is uploaded, gently rotate the potentiometer knob and watch your motor change speed!</p>
+
+<p>To make the fan blades, cut out the pattern on the next page on sturdy poster board or cardboard. Punch a small hole in the center with scissors or a pen to accommodate the motor shaft. It’s best to start with a small hole and gradually widen it as necessary until the disc fits snugly around the shaft. Use some tape or glue to secure the motor shaft to the fan blades. Always disconnect the circuit from power while attaching anything to the motor.</p>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+Could you use a temperature sensor to automatically turn the fan on when it gets hot enough? Do some fan shapes propel air better than others?</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+  <a href="fan/fan_template.png" download>
+    <img src="fan/fan_template.png" alt="Fan template%" class="w3-image" width="500"></img>
+  </a>
+</div>
+
+<p class="w3-center w3-xlarge"><a href="project_bat.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_cupcake.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_fan",});
+</script>
+</body>
+</html>

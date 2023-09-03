@@ -1,0 +1,104 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.responsive {
+	width:100%;
+	height: auto;
+}
+pre{
+    counter-reset: line;
+    overflow-x: auto;
+    padding: 0.5em;
+    word-wrap: normal;
+}
+code{
+    counter-increment: line;
+    white-space: pre;
+}
+code:before{
+    content: counter(line) "| ";
+    display: inline-block;
+    width: 3em;
+    padding-left: auto;
+    margin-left: auto;
+    text-align: right;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+p {
+  margin: 36px;
+  font-size: 20px;
+  line-height: 1.65;
+  font-family: myriad-pro,helvetica,arial,sans-serif;
+  color: #555;
+  word-wrap: break-word;
+   padding: 0.01em 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.smalltext {
+  font-size: 20px;
+  line-height: 1.65;
+  font-family: myriad-pro,helvetica,arial,sans-serif;
+  color: #555;
+}
+
+h1 {
+  color: #555;
+}
+
+a { text-decoration: none; }
+
+.materials {
+  max-width: 770px;
+  border-radius: 25px;
+  border: 2px solid;
+  border-color: #D1DBD5;
+  margin:auto;
+  width:90%;
+}
+
+.navbar{
+   background-color: #E7BBE3;
+}
+
+.tipbox{
+  padding: 0.01em 16px;
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  background-color: #FAF0F9;
+  border-radius: 15px;
+
+}
+
+.codespan{
+  font-family: Consolas, "courier new";
+}
+
+figcaption{
+  margin: 16px;
+}

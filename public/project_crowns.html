@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Seven: Soft Circuit Mini Crowns</h1>
+ <img src="crowns/crowns-whiter.png" alt="Teabot" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="crowns/leds.png" alt="LEDs" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">LEDs</div>
+    </div>
+    <div class="twocolumn">
+        <img src="crowns/coincell.png" alt="Coin Cell Battery" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Coin Cell Battery</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="crowns/sewable_holder.png" alt="Sewable Battery Holder" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Sewable Battery Holder</div>
+    </div>
+    <div class="twocolumn">
+        <img src="crowns/thread.png" alt="Conductive Thread" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Conductive Thread</div>
+    </div>
+  </div>
+</div>
+
+ <p>It’s time to break away from breadboards and start sewing circuits into fabric! <b>Soft circuits</b>, also known as <b>e-textiles</b>, let you add some extra sparkle to clothing and costumes.  A wired breadboard would certainly be a clunky way to light up a few LEDs on a piece of clothing, though, so in this project we’ll be going back to the basics: LEDs, a battery, and conductive thread. </p>
+
+<p>Conductive thread is a sewable alternative to wire. This thread carries current from your battery to your components with a low amount of resistance, usually about 10-30 Ohms per foot. It’s easiest to attach the thread to the battery with a sewable coin cell battery holder. Besides ensuring good conduction between the thread and battery, a holder with an on/off switch will help the battery conserve energy when your project is not in use. </p>
+
+<figure class="w3-padding-16 w3-center">
+ <img src="crowns/crowns_parts_live.jpg" alt="E-textiles materials" class="w3-image" width="500"></img>
+ <figcaption><i>Conductive thread and a sewable battery holder.</i></figcaption>
+</figure>
+
+<p class="tipbox"><b>Before You Begin</b><br>
+Your battery wants to do as little work as possible. If you put a red LED in a parallel circuit with a blue LED, only your red LED will light up, because the red LED needs less current than the blue LED. Stick to one color of diode to ensure that your current gets divided evenly.</p>
+
+<p>With a pair of pliers, grab the tip of one diode leg and curl it up towards the bulb. When the wire is completely rolled up, rotate the curl so that the LED can sit on a table and point straight up. Repeat for the other leg. Mark the positive leg with a permanent marker so that you don’t accidentally reverse the polarity while sewing!</p>
+
+<div class="row">
+  <div class="twocolumn">
+    <img src="crowns/pliers.jpg" alt="Pliers with LED" class="w3-image" width="500"></img>
+  </div>
+  <div class="twocolumn">
+    <img src="crowns/flattened_diode.jpg" alt="Flattened LED" class="w3-image" width="500"></img>
+  </div>
+</div>
+
+<p>Trace the crown template at the bottom of this page onto your fabric, or create your own pattern and cut it out. Lightly mark your LED placement with a pencil.</p>
+
+<p>Thread a sewing needle with about two feet of conductive thread. Knot the thread and sew the anode (long leg, positive side) of the first LED down, looping the thread around the wire several times. Aim for about five stitches around every LED leg to ensure a good connection. Stitch in a straight line until you reach the next LED. Repeat this process until you have stitched down the anode of every LED. </p>
+
+<figure class="w3-padding-16 w3-center">
+ <img src="crowns/crown_flat.jpg" alt="Flat crown" class="w3-image" width="800"></img>
+ <figcaption><i> All anodes stitched together and connected to the positive battery lead.
+</i></figcaption>
+</figure>
+
+<p>Now identify the positive hole in your battery holder, usually marked 3V or simply + . The thread you’ve just sewn through the LED legs needs to connect here. Loop the thread through the hole several times, then knot off your thread and cut away any excess. You’re halfway done!</p>
+
+<p>Repeat the sewing process for the other LED legs. Remember that your positive and negative threads should never touch or cross, or else you’ll end up with a short circuit.</p>
+
+<p>When you’re done sewing and you’ve checked that no threads of opposite polarity are touching, slide a battery into your battery holder and flip the switch on.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="crowns/crown_flat_illuminated.jpg" alt="Flat crown illuminated" class="w3-image" width="800"></img>
+</div>
+
+<p>Congratulations, you’ve created your first soft circuit! Now you can add flair to clothing, costumes, and accessories. Although you’ll be back to using code again in the next project,  your circuit can still be interactive without a microcontroller. Experiment with separate pieces of fabric that create a closed circuit when their conductive pieces are pressed together. Try superhero gauntlets, a metallic purse snap, or friendship bracelets. 
+</p>
+
+<p class="tipbox"><b>Make It Yours</b><br>
+Are your LEDs too bright? Try dipping the tip of each diode into acrylic paint for a more muted backlight effect. </p>
+
+<figure class="w3-padding-16 w3-center">
+ <a href="crowns/crown_template.png" download>
+    <img src="crowns/crown_template.png" alt="Crown template" class="w3-image" width="500"></img>
+ </a>
+ <figcaption><i>Cut out this template and trace onto stiff felt.</i></figcaption>
+</figure>
+
+<p class="w3-center w3-xlarge"><a href="project_cupcake.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_constellation.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics().log_event('screen_view', {screen_name: "project_crowns",});
+</script>
+</body>
+</html>

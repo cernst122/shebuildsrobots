@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Four: Light Sensitive Bats</h1>
+ <img src="bat/bat-whiter.png" alt="Bat" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="parts/servo.png" alt="Servo" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Servo x 2</div>
+    </div>
+    <div class="twocolumn">
+        <img src="parts/servo.png" alt="Servo" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Servo x 2</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="twocolumn">
+      <img src="bat/photoresistor.png" alt="Photoresistor" class="w3-image" width="175"></img>
+      <div class="w3-center w3-padding-large smalltext">Photoresistor</div>
+    </div>
+    <div class="twocolumn">
+      <img src="heartbox/resistor_220.png" alt="resistor" class="w3-image" width="175"></img>
+      <div class="w3-center w3-padding-large smalltext">330 or 220 Ω Resistor</div>
+    </div>
+  </div>
+</div>
+
+ <p>It’s time to experiment with sensors! In this project, you’ll make a bat that flaps its wings when the room gets dark enough. A helpful component for measuring the amount of light in an environment is the <b>photoresistor</b>, also sometimes called a <b>photocell</b> or <b>light-dependent resistor</b>. Photoresistors are similar to the resistors you’ve used in previous projects, except their resistances change depending on the intensity of light hitting their surfaces. Dark conditions yield high resistances that become lower and lower as more light is introduced. The Arduino can detect and act on the voltage changes that result from these resistance changes. To understand how, we need to talk about digital and analog signals.
+</p>
+
+<p>In the world of electronics, digital means <b>binary</b>: digital values are either 0 or 1, on or off. The digital pins you’ve been using on the right side of the Arduino either output HIGH or LOW voltage; there is no third option. Analog, on the other hand, is more of a sliding scale. In the world of Arduino, analog values are anywhere from 0 to 1023 (corresponding to 0V - 5V). This flexibility is helpful for getting more specific data about the world around you. For example, the photoresistor in this project might output values less than 100 in a dark room, around 400 in a reasonably well lit room, and 700 or higher in an extremely bright room. This level of detail gives us much more control over how our circuit behaves. </p>
+
+<p>Just like a regular resistor, it does not matter which end of the photoresistor connects to power or ground. Construct the circuit below before moving on.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="bat/bats_breadboard.png" alt="Final bats breadboard" class="w3-image" width="1000"></img>
+</div>
+
+<p>Most of the code in this project will be familiar to you if you’ve already completed Project Three. Two new additions are <b>analog input</b> and the <b>serial monitor.</b></p>
+
+<p>As we discussed above, the voltage reading coming out of the photoresistor is proportional to the amount of light in the room. The <b class="codespan">analogRead()</b> function interprets this value as a number between 0 and 1023. The code below checks if this value is less than 300 -- a reasonable threshold for a bright room -- before telling the servos to move. However, your particular environment or photoresistor might cause this threshold value to be different. We can check exactly what values the Arduino is receiving by using the <b>serial monitor.</b></p>
+
+<p>The serial monitor is your Arduino’s way of communicating with you. By adding some extra code, we can tell the program to print specific values, or even entire phrases, to the screen. First, <b class="codespan">Serial.begin(9600)</b> on line 14 helps the Arduino and computer agree that they will communicate with the common language of 9600 baud (bits per second). Then, <b class="codespan">Serial.println(lightVal)</b> on line 20 tells the Arduino to send us the value of the <b class="codespan">lightVal</b> variable to print on the screen. Once your program is uploaded, you can click the serial monitor icon on the upper right side of the screen to view the information in real time.</p>
+
+<figure class="w3-padding-16 w3-center">
+ <img src="bat/serial_monitor.png" alt="Serial monitor" class="w3-image" width="100"></img>
+ <figcaption><i>The serial monitor icon.</i></figcaption>
+</figure>
+
+<p>Let’s start gathering information from our photoresistor. Copy the code below into your sketch.</p>
+
+<div class="w3-panel">
+<pre>
+<code>#include &ltServo.h&gt</code>
+<code>#define servoPin1 9</code>
+<code>#define servoPin2 10</code>
+<code>#define photoPin  A0</code>
+<code>#define minAngle  70</code>
+<code>#define maxAngle  110</code>
+<code></code>
+<code>Servo servo1, servo2;</code>
+<code>int lightVal;</code>
+<code></code>
+<code>void setup() {</code>
+<code>  servo1.attach(servoPin1);</code>
+<code>  servo2.attach(servoPin2);</code>
+<code>  Serial.begin(9600);</code>
+<code>}</code>
+<code></code>
+<code>void loop() {</code>
+<code>  lightVal = analogRead(photoPin);</code>
+<code>  Serial.println(lightVal);</code>
+<code>  if (lightVal < 300){</code>
+<code>    servo1.write(minAngle);</code>
+<code>    servo2.write(maxAngle);</code>
+<code>    delay(1000);</code>
+<code>    servo1.write(maxAngle);</code>
+<code>    servo2.write(minAngle);</code>
+<code>    delay(1000);</code>
+<code>  }</code>
+<code>}</code>
+</pre>
+</div>
+
+
+<p>After uploading the code, look at the serial monitor. Try covering the photoresistor with your finger or turning off the lights to watch how the values change. When the readings are low enough, the servos will start to move. If you’d like to make the bat fly in brighter rooms, simply change the threshold value in line 20 to be a higher number. You can also experiment with the <b class="codespan">delay()</b> parameters or <b class="codespan">minAngle</b> and <b class="codespan">maxAngle</b> values to change how hard and fast the bat flaps.</p>
+
+<p>Use rubber bands to attach a popsicle stick to each of the servo arms. Cut out the bat template pieces on the next page. Glue one wing to each of the popsicle sticks, with the front of the wing on the same side as the servo arm. Hot glue the bottom of each servo to the back side of the bat body piece as shown below. </p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="bat/bat_assembly.jpg" alt="Assembled bat" class="w3-image" width="700"></img>
+</div>
+
+<p>Great job, you’ve created your first circuit that reacts to the world around you! Learning how to use sensors is an important step towards building more interactive circuits. </p>
+
+<p>Print and trace the template below and cut out on cardboard or construction paper, or design your own bat shape.</p>
+<div class="w3-panel w3-padding-32 w3-center">
+<a href="bat/bat_template.png" download>
+ <img src="bat/bat_template.png" alt="Cutout bat template" class="w3-image" width="1000"></img>
+</a>
+</div>
+
+<p class="w3-center w3-xlarge"><a href="project_tea.html" class="w3-hover-opacity">&#10094; Previous Project</a> &#65372; <a href="project_fan.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_bat",});
+</script>
+</body>
+</html>

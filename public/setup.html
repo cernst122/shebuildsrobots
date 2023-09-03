@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Getting Started</h1>
+ <img src="parts/setup.jpg" alt="Arduino setup" class="w3-image" width="700"></img>
+</div>
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="parts/arduino_transparent.png" alt="Microcontroller" class="w3-image" width="400"></img>
+        <div class="w3-center w3-padding-large smalltext">Microcontroller</div>
+    </div>
+      <div class="twocolumn">
+        <img src="parts/usb_a_b.png" alt="USB A to B" class="w3-image" width="400"></img>
+      <div class="w3-center w3-padding-large smalltext">USB A to B Cable</div>
+    </div>
+  </div>
+</div>
+
+<p>The projects on this website use a small, programmable circuit board called a <b>microcontroller</b> (sometimes called by the brand name <b>Arduino</b>). By definition, these boards are computers: they can run code, just like the computers in your phone or on a rocket.</p>
+
+<p>Although your microcontroller is a computer, it's missing a lot of the things you probably associate with the computers in your life: a keyboard, a mouse, and a screen. Since it has none of these things, you'll need to write code on your computer first, then upload it to your microcontroller using a USB cable. </p>
+
+<p>The <b>Arduino IDE</b> is a free software for writing and uploading code. Download the software at <a href="https://www.arduino.cc/en/software" style="text-decoration: underline;">https://www.arduino.cc/en/software</a>, or create a free account to use the browser version at <a href="https://create.arduino.cc/editor" style="text-decoration: underline;">https://create.arduino.cc/editor</a> (note that the browser version also requires a download).</p> 
+
+ <p>Plug one end of your USB cord into your microcontroller board and the other into a USB port on your computer. Follow the instructions on the Arduino website above to launch the software you just downloaded.</p>
+
+ <p>That's it! When you're ready, move on to Project One to build your first circuit.</p>
+
+<p class="w3-center w3-xlarge"><a href="project_cupcake.html" class="w3-hover-opacity"><a href="project_heartbox.html" class="w3-hover-opacity">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script>
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {firebase_screen: "setup",});
+</script>
+</body>
+</html>

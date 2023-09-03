@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project Nine: Color Changing Skirt</h1>
+ <img src="skirt/skirt.jpeg" alt="Skirt" class="w3-image" width="700"></img>
+ <img src="skirt/skirt.GIF" alt="Skirt gif" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="skirt/gemma.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Gemma Board</div>
+    </div>
+    <div class="twocolumn">
+        <img src="skirt/addressable_led.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Individually Addressable LED Strip</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column" style="margin: auto;">
+        <img src="skirt/battery_jst_large.png" class="w3-image" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">Battery with JST Connector</div>
+    </div>
+  </div>
+</div>
+
+ <p>Futuristic fashion is within your reach! You’ll take your e-textile skills to the next level in this project by creating a glowing piece of clothing that shifts colors.</p>
+
+<p>Until now, you’ve sewn down individual LEDs, and in theory you could sew hundreds onto a skirt -- but that would be heavy, complicated, and time consuming. Instead, <b>addressable LED strips</b> like the one in the photo below let us individually control an entire ribbon of LEDs with a single microcontroller pin. We’ll attach one of these strips to a piece of clothing that will light up the night.  </p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="skirt/addressable_leds_live.jpeg" alt="Addressable LED strips" class="w3-image" width="500"></img>
+</div>
+
+<p>You can get creative with any piece of clothing that doesn’t have sharp angles. You’ll need to accommodate a battery pack and a Gemma, so you should consider clothing where you can add a secret pocket. The hem of a skirt is a good choice, as it’s easy to hide things between folds and layers.</p>
+
+<p>This project requires soldering. While you may have been able to get away with twisting wires around the Gemma in previous projects, electrical connections must be stronger for clothes that move with the body. Finally, you’ll need ribbon that’s thicker than your LED strip to help you sew everything down. Once you’ve gathered all your materials, take a closer look at your LED strip.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="skirt/leds_zoomed.jpeg" alt="Addressable LED strips" class="w3-image" width="700"></img>
+</div>
+
+<p>Each box between vertical black lines contains an individually controllable LED. You can safely cut the strip on these black lines, and the metallic pads of separate pieces can be soldered together to create longer strips.</p>
+
+<p>Now, let’s give your microcontroller some wire connections to plug into the LED strip. Your Gemma will sit right next to the strip, so your wires don’t need to be very long. Cut three pieces of 1-2” wire and strip a small amount of insulation from each side to expose the wire. Solder one wire to the Gemma’s GND, one wire to D1, and one wire to Vout. Plug the other end of each wire into the LED strip’s connector. If the connector does not have color coded wires, look at the printed letters on the strip. The middle wire is often data (connected to D1). The wire in the same row as the printed 5V connects to Vout, and the GND wire connects to GND.</p>
+
+<figure class="w3-padding-16 w3-center">
+  <img src="skirt/gemma_zoom.jpg" alt="Zoomed in Gemma" class="w3-image" width="500"></img>
+     <figcaption><i>The Gemma needs three connections: One for power (orange), one to send data about the LED colors (yellow), and one for ground (black).</i></figcaption>
+</figure>
+
+<p>We will use a pre-written library to help control our strip, just like the servo library from previous projects. The instructions below are from <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-installation" style="text-decoration: underline;">the Adafruit website</a>; follow along here or on the web. Open your Arduino software.</p>
+
+<p>From the <b class="codespan">Sketch</b> menu, select <b class="codespan">Include Library > Manage Libraries</b>.  In the text input box type in "NeoPixel". Look for "Adafruit NeoPixel by Adafruit" and select the latest version by clicking on the popup menu next to the Install button. Then click on the Install button. After it's installed, you can click the "close" button.</p>
+
+<p>Now from the File menu, select <b class="codespan">Sketchbook > Libraries > Adafruit_NeoPixel > strandtest</b>. If all is working as expected, your strip will flash and change colors. If not, check that your microcontroller is on and that all three connections are stable.
+</p>
+
+<p>The code below is an edited version of Adafruit’s, and you can find the full version with other LED effects <a href="https://github.com/adafruit/Adafruit_NeoPixel/blob/master/examples/strandtest/strandtest.ino" style="text-decoration: underline;">here</a>. The version below cycles through the colors of the rainbow. If you do not have exactly 30 LEDs on your strip, be sure to change the parameter on line 4. You’re ready to upload the code and start glowing! </p>
+
+<div class="w3-panel">
+  <pre>
+  <code>#include &ltAdafruit_NeoPixel.h&gt</code>
+  <code>#define PIN 1</code>
+  <code></code>
+  <code>//Change the first parameter to the number of LEDs in your strip!</code>
+  <code>Adafruit_NeoPixel strip = Adafruit_NeoPixel(30, PIN, NEO_GRB + NEO_KHZ800);</code>
+  <code></code>
+  <code>void setup() {</code>
+  <code>  strip.begin();</code>
+  <code>  strip.show();</code>
+  <code>}</code>
+  <code></code>
+  <code>void loop() {</code>
+  <code>  rainbow(40); //Change this parameter to change the color cycle speed</code>
+  <code>}</code>
+  <code></code>
+  <code>void rainbow(uint8_t wait) {</code>
+  <code>  uint16_t i, j;</code>
+  <code>  for(j=0; j&lt256; j++) {</code>
+  <code>    for(i=0; i&ltstrip.numPixels(); i++) {</code>
+  <code>      strip.setPixelColor(i, Wheel((i+j) & 255));</code>
+  <code>    }</code>
+  <code>    strip.show();</code>
+  <code>    delay(wait);</code>
+  <code>  }</code>
+  <code>}</code>
+  <code></code>
+  <code>uint32_t Wheel(byte WheelPos) {</code>
+  <code>  WheelPos = 255 - WheelPos;</code>
+  <code>  if(WheelPos < 85) {</code>
+  <code>    return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);</code>
+  <code>  }</code>
+  <code>  if(WheelPos < 170) {</code>
+  <code>    WheelPos -= 85;</code>
+  <code>    return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);</code>
+  <code>  }</code>
+  <code>  WheelPos -= 170;</code>
+  <code>  return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p>Once you’ve played with the code to your satisfaction, you’ll need an LED strip casing that can be sewn to fabric. A wide translucent ribbon works well, and softens the light at the same time. Consider where you’d like the Gemma and battery pack to sit. The side of the skirt is a good choice, as it lets you easily access the on/off switch and prevents you from sitting on the electronics.</p>
+
+<p>Place the start of your ribbon on the side of your skirt near the hem. Place the LED strip on top, then fold the ribbon over the front of the LED strip. You now have a casing with an opening at the top. Sew along this opening to attach the casing to the skirt while closing the opening. You’re almost done!</p>
+
+<div class="row">
+  <div class="twocolumn">
+    <figure class="w3-padding-16 w3-center">
+      <img src="skirt/ribbon_1.jpeg" alt="Preparing the casing" class="w3-image" width="500"></img>
+         <figcaption><i>Place the LED strip on top of the ribbon.</i></figcaption>
+    </figure>
+  </div>
+  <div class="twocolumn">
+    <figure class="w3-padding-16 w3-center">
+     <img src="skirt/ribbon_2.jpeg" alt="Preparing the casing" class="w3-image" width="500"></img>
+     <figcaption><i>Fold the ribbon over the LED strip.</i></figcaption>
+</figure>
+  </div>
+</div>
+
+<figure class="w3-padding-16 w3-center">
+     <img src="skirt/ribbon_3.jpeg" alt="Sewing the casing to the skirt" class="w3-image" width="500"></img>
+     <figcaption><i>Sew the ribbon casing to the skirt hem.</i></figcaption>
+</figure>
+
+<p>Now all you need is a place to hold the Gemma and battery. The Gemma can be sewn directly to the fabric. To make a battery pocket, cut a rectangle about two centimeters wider than the battery on each side. Fold the sides underneath to create a clean edge, and sew down next to the Gemma. Plug your battery into the Gemma, place it in the pocket, switch the Gemma on, and get ready to twirl!</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="skirt/skirt_with_battery_holder.jpeg" alt="Battery pocket" class="w3-image" width="500"></img>
+</div>
+
+<p>To keep your skirt in peak condition, take care not to bend the LED strip at a sharp angle, and avoid liquid spills. If you’d like to wash your skirt, consider adding a velcro back to the ribbon LED casing so that it can easily be removed.</p>
+
+<p>Want to make your clothing interactive? Try controlling the lights in response to a temperature sensor, photoresistor, or pushbutton.</p>
+
+<p class="w3-center w3-xlarge"><a href="project_constellation.html" class="w3-hover-opacity">&#10094; Previous Project</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_skirt",});
+</script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>She Builds Robots</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+.twocolumn {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar navbar w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About</a>
+    <a href="projects.html" class="w3-bar-item w3-button w3-padding-large w3-white">Projects</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="materials.html" class="w3-bar-item w3-button w3-padding-large">Materials</a>
+    <a href="resources.html" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+  </div>
+</div>
+
+<div class="w3-panel w3-padding-64 w3-center">
+<h1>Project One: Blinking Heartbeat Box</h1>
+ <img src="heartbox/heartbox.GIF" alt="Heartbox" class="w3-image" width="700"></img>
+</div>
+
+<div class="w3-container w3-light-grey w3-center w3-padding-32 materials">
+  <h1 class="w3-margin w3-xlarge">You Will Need:</h1>
+  <div class="row">
+    <div class="twocolumn">
+        <img src="heartbox/led.png" class="w3-image" alt="LED" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">LED</div>
+    </div>
+    <div class="twocolumn">
+        <img src="heartbox/resistor_220.png" class="w3-image" alt="resistor" width="175"></img>
+        <div class="w3-center w3-padding-large smalltext">220 Ω resistor</div>
+     </div>
+  </div>
+</div>
+
+ <p>In this first project, you will build a circuit and learn how to use code to control a light. Electrical current is under your command with the right code words! Before we dive into the code, let’s take a look at how to build a <b>circuit</b>, a path for electricity to flow.</p>
+
+<p><b>Solderless breadboards</b> have built-in metallic strips. These strips act like wires to connect pieces you add to the circuit, like lights and motors. Underneath the plastic grid, the metallic strips are arranged like this:</p>
+
+<div class="row">
+  <div class="twocolumn">
+    <figure class="w3-padding-16 w3-center">
+      <img src="basics/breadboard_plain.png" alt="Solderless breadboard" class="w3-image" width="300"></img>
+     <figcaption><i>A solderless breadboard.</i></figcaption>
+    </figure>
+  </div>
+  <div class="twocolumn">
+    <figure class="w3-padding-16 w3-center">
+      <img src="heartbox/breadboard_bts.png" alt="Breadboard underneath" class="w3-image" width="300"></img>
+     <figcaption><i>Metal connections underneath the plastic.</i></figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>Which means that although each pair of colored wires are plugged into different breadboard holes, the conductive strip connects each pair:</p>
+
+<div class="w3-panel w3-padding-32 w3-center responsive">
+ <img src="heartbox/color_demo.png" alt="Breadboard connections" class="w3-image" width="400"></img>
+</div>
+
+<p>Solderless breadboard circuits are easy to assemble, disassemble, and reuse, so they will be your base for most projects in this book. Start by inserting one end of a wire into digital pin 3 on the right side of the Arduino. Place the other end of the wire into any hole in the breadboard (except for the two vertical strips on either side -- these are used to make more connections to your power source).
+</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="heartbox/blink_step0.png" alt="Heartbox step 0" class="w3-image" width="500"></img>
+</div>
+
+<p>Next, look at the legs of the light-emitting diode (LED for short). The long leg, known as the <b>anode</b>, is usually called the positive end, which means it should be connected to power. The shorter leg, known as the <b>cathode</b>, is the negative end and will be connected to ground. We'll learn how to connect to power and ground next.</p>
+
+<p class="tipbox"><b>Circuit Tip</b><br>
+Diodes are like one-way street signs for current. If a diode is connected backwards, no current can flow, and your LED cannot light up!
+</p>
+
+<p>Connect the LED so that the long leg is in the same row as the power wire. Because electricity moves across the rows in your breadboard, electric current will be able to flow from the Arduino to the LED. Insert the shorter leg in any row besides the previous row. Your setup should look something like the board below. </p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="heartbox/blink_step1.jpg" alt="Heartbox step 1" class="w3-image" width="500"></img>
+</div>
+
+<p>The next piece is a <b>resistor</b>. As the name suggests, resistors <i>resist</i> the flow of current by transforming electrical energy into thermal energy (heat). Without a resistor, the high current would burn out the LED. Resistors’ colored stripes tell you exactly how much they resist current flow. Find a resistor with two red stripes, a brown stripe, and a gold stripe: this is a 220 Ohm resistor (Ohm is a unit of measurement, represented by Ω). If you don't have a 220Ω resistor, you can use a slightly higher value, like 330Ω.</p>
+
+<p>Connect one end of the resistor to the LED’s short leg. Resistors aren’t one-way streets like LEDs are, so it does not matter which end of the resistor you connect.</p>
+
+<p class="tipbox"><b>Finding the Right Resistor</b><br>
+To calculate the resistance needed, we use Ohm’s Law, which says that voltage (V) divided by current (I) equals resistance (R).  Different colors of LEDs require different amounts of current. We’ll try a calculation with a yellow LED rated at 20 milliAmps that uses a digital pin’s standard output of 5 Volts. 
+<br>
+ 5 Volts / .002 Amps = 250 Ohms
+<br>
+Common resistor values nearby are 220 or 330 Ohms. Try a resistance calculation for your favorite color of LED!
+</p>
+
+<p>Finally, insert a new wire into the same row as the resistor’s free end. Connect the other end of this wire to the digital pin labeled GND (ground) on the Arduino’s right side. There is now a closed circuit: a complete path for current to flow from the power source, through the LED, and back to ground. After we add code and power in the next step, electricity will flow from your power source (the computer) and through the Arduino’s digital pin. Digital pins have only two states: HIGH (on; 5 Volts) or LOW (off; 0 Volts). When the pin is programmed to be HIGH, current will want to flow towards ground through the LED. When the pin is LOW, there is no voltage output, so there can be no current, and the LED will turn off.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="heartbox/blink_step2.jpg" alt="Heartbox step 2" class="w3-image" width="500"></img>
+</div>
+
+<p>Now, let’s give the Arduino some power and light up the LED! Plug one end of the USB cord into the Arduino and the other into the computer’s USB port. Open the Arduino application or browser app you set up in <a href="setup.html" style="text-decoration: underline;">Getting Started</a>. If this is your first time using the browser editor, select "Web Editor" if prompted.
+
+    <figure class="w3-padding-16 w3-center">
+      <img src="heartbox/arduino_cloud_welcome.png" alt="Browser app welcome screen" class="w3-image" width="700"></img>
+     <figcaption><i>The welcome screen for the browser version of the Arduino web editor. Click "Web Editor" if you see this screen.</i></figcaption>
+    </figure>
+
+<p>Arduino programs are called <b>sketches</b>. Copy the following code into your sketch:</p>
+
+<div class="w3-panel">
+  <pre>
+  <code>#define ledPin 3</code>
+  <code></code>
+  <code>void setup(){</code>
+  <code>  pinMode(ledPin, OUTPUT);</code>
+  <code>}</code>
+  <code></code>
+  <code>void loop(){</code>
+  <code>  digitalWrite(ledPin, HIGH);</code>
+  <code>  delay(1000);</code>
+  <code>  digitalWrite(ledPin, LOW);</code>
+  <code>  delay(1000);</code>
+  <code>}</code>
+  </pre>
+</div>
+
+<p class="tipbox"><b>Coding Tip</b><br>
+Computers aren’t very smart, so you must follow specific <b>syntax</b> rules when writing code. Words are case-sensitive, and commands must be followed by a semicolon. However, the amount of whitespace between words does not matter. For example, 
+<br>
+<b class="codespan">delay(1000);</b>
+<br>
+will work the same way as 
+<br>
+<b class="codespan">delay( 1000 )    ;</b>
+</p>
+
+ <p>If you're stuck, take a look at the video below to get back on track.</p>
+ <div class="w3-panel w3-padding-32 w3-center">
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/aVa1qgx7Na8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<p>Once the code is inside your sketch, you’re ready to transfer those instructions to your Arduino.</p>
+
+<p>If you're using the browser app, select "Arduino Uno" from the drop down menu. Once your microcontroller is plugged in, you should also see a <b>Port</b> show up in the drop down menu (possibly something like <b class="codespan">/dev/cu.usbmodem14101</b>).</p>
+
+    <figure class="w3-padding-16 w3-center">
+      <img src="heartbox/arduino_web_editor_dropdown.png" alt="Browser app dropdown menu" class="w3-image" width="700"></img>
+     <figcaption><i>Sketch view of the Arduino web editor. Select "Arduino Uno" from the dropdown menu.</i></figcaption>
+    </figure>
+
+<p>If you're using the downloaded Arduino app, select <b class="codespan">Board > Arduino Uno</b> from the Tools menu.</b></p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="heartbox/upload_1.png" alt="Heartbox upload step 1" class="w3-image" width="700"></img>
+</div>
+
+<p>Return to the Tools menu and select <b class="codespan">Port</b>. You should see a new port, possibly with “USB” in the name. If you’re not sure which port to select, try each one until your code successfully uploads.</p>
+
+<div class="w3-panel w3-padding-32 w3-center">
+ <img src="heartbox/upload_2.png" alt="Heartbox upload step 2" class="w3-image" width="700"></img>
+</div>
+
+<p>Now click the “Upload” arrow button in the top left corner, next to the check mark button.  This button will first <b>compile</b> the code, converting it into a language that the Arduino can understand. The compiler also checks for errors in the code, such as missing semicolons, that would confuse the computer. Compilers only check that the <b>syntax</b> of the code is correct. Successful compilation is not a guarantee that the code will actually behave as you intended!</p>
+
+ <p>If the circuit is correct and the code has successfully uploaded, your LED will start to flash!</p>
+
+ <p>If you see an orange error bar at the bottom of your screen, there was an issue with compiling the code or uploading it to the board. Error messages are meant to help you identify the cause of your problem. If the error refers to a specific line of your code, you probably have a typo. Check your code carefully against the code above.</p>
+
+ <p>If you don’t see an error message but your LED does not light up, check to make sure your LED’s longer leg is connected to power (is it in the same row as the wire connected to pin 3 on the Arduino?) Also check that you have connected the resistor to the digital GND pin on the right side of the board instead of the power GND pin on the left side of the board.</p>
+
+ <p class="tipbox"><b>Coding Tip</b><br>
+The numbers inside the <b class="codespan">delay()</b> function are called <b>parameters</b>. You can edit the parameters to change the way the function behaves. How could you change the delay to 500 milliseconds? 250 milliseconds? Upload the code again with the new parameters to see your changes.</p>
+
+<p>Congratulations! You’ve made an important step towards building interactive circuits. Once the LED is blinking, you can get creative with making it into a decoration. To make a heartbeat box, change the parameters of the <b class="codespan">delay()</b> function to beat as fast or slow as you would like. Cut out a heart shape from one side of a cardboard box, and tape red tissue paper or construction paper behind the hole. Your blinking LED will illuminate the heart with a steady pulse.</p>
+
+<p class="w3-center w3-xlarge w3-hover-opacity"><a href="project_marquee.html">Next Project &#10095;</a></p>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+ © 2023 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+  <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="/__/firebase/8.10.10/firebase-app.js"></script>
+<script src="/__/firebase/8.10.10/firebase-analytics.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script> 
+  const analytics = firebase.analytics();
+  analytics.log_event('screen_view', {screen_name: "project_heartbox",});
+</script>
+</body>
+</html>
