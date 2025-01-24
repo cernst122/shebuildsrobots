@@ -192,10 +192,54 @@ The numbers inside the <b class="codespan">delay()</b> function are called <b>pa
 
 <p>Congratulations! You’ve made an important step towards building interactive circuits. Once the LED is blinking, you can get creative with making it into a decoration. To make a heartbeat box, change the parameters of the <b class="codespan">delay()</b> function to beat as fast or slow as you would like. Cut out a heart shape from one side of a cardboard box, and tape red tissue paper or construction paper behind the hole. Your blinking LED will illuminate the heart with a steady pulse.</p>
 
+<p>Looking for an extra challenge? Try copying the code below to spell a secret message in morse code.</p>
+
+<div class="w3-panel">
+  <pre>
+  <code>#define ledPin 3</code>
+  <code></code>
+  <code>void setup(){</code>
+  <code>  pinMode(ledPin, OUTPUT);</code>
+  <code>}</code>
+  <code></code>
+  <code>void loop(){</code>
+  <code>  blinkS();</code>
+  <code>  blinkO();</code>
+  <code>  blinkS();</code>
+  <code>}</code>
+  <code></code>
+  <code>void dot(){</code>
+  <code>  digitalWrite(ledPin, HIGH);</code>
+  <code>  delay(300);</code>
+  <code>  digitalWrite(ledPin, LOW);</code>
+  <code>  delay(500);</code>
+  <code>}</code>
+  <code></code>
+  <code>void dash(){</code>
+  <code>  digitalWrite(ledPin, HIGH);</code>
+  <code>  delay(1000);</code>
+  <code>  digitalWrite(ledPin, LOW);</code>
+  <code>  delay(500);</code>
+  <code>}</code>
+  <code></code>
+  <code>void blinkS(){</code>
+  <code>  dot();</code>
+  <code>  dot();</code>
+  <code>  dot();</code>
+  <code>}</code>
+  <code></code>
+  <code>void blinkO(){</code>
+  <code>  dash();</code>
+  <code>  dash();</code>
+  <code>  dash();</code>
+  <code>}</code>
+  </pre>
+</div>
+
 <p class="w3-center w3-xlarge w3-hover-opacity"><a href="project_marquee.html">Next Project &#10095;</a></p>
 
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
- © 2024 Christina Ernst | <a href="https://linkedin.com/in/christina-ernst-makes-things"><i class="fa fa-linkedin w3-hover-opacity"></i></a> | 
+ © 2024 Christina Ernst | <a href="https://www.instagram.com/shebuildsrobots"><i class="fa fa-instagram w3-hover-opacity"></i></a> | 
   <a href="https://forms.gle/vfzUEnNqubufaUqM7" class="w3-hover-opacity">Submit feedback</a>
 </footer>
 
